@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+read_deposit_bank,read_deposit_bank,model_deposit_bank,,1,0,0,0
+access_deposit_bank,access deposit bank,model_deposit_bank,bank_group_manager,1,1,1,1
+access_deposit_transaction_manager,access deposit transaction manager,model_deposit_transaction,bank_group_manager,1,1,1,1
+access_deposit_transaction_user,access deposit transaction user,model_deposit_transaction,bank_group_user,1,1,1,0

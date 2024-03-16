@@ -1,0 +1,76 @@
+<odoo>
+    <data>
+
+
+        <!-- Bank form view definition -->
+
+        <record model="ir.ui.view" id="user_bank_inherit_list_view">
+            <field name="name">user bank</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Bank">
+
+                        <field name="bank_id" options="{'no_create':True}"/>
+                    </page>
+                    <page string="Transactions">
+                        <group>
+                            <field name="bank_transactions"/>
+                            <field name="total_balance"/>
+
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="partner_bank_inherit_form_view">
+            <field name="name">partner bank</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Bank">
+                        <group>
+                            <field name="bank_id"  options="{'no_create':True}"/>
+
+                        </group>
+                    </page>
+                    <page string="Transactions">
+                        <group>
+                            <field name="bank_transactions" />
+                            <field name="total_balance"/>
+
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="customer_bank_action_window">
+            <field name="name">Customers window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.actions.act_window" id="user_bank_action_window">
+            <field name="name">Users window</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">tree,form</field>
+<!--            <field name="view_id" ref="user_bank_inherit_list_view" />-->
+        </record>
+
+
+        <!-- menu categories -->
+
+        <menuitem name="Configuration" id="Configuration_bank_menu" parent="deposit_system_menu"/>
+
+        <menuitem name="Customers" id="customer_bank_menu" parent="Configuration_bank_menu"
+                  action="customer_bank_action_window"/>
+        <menuitem name="Users" id="user_bank_menu" parent="Configuration_bank_menu"
+                  action="user_bank_action_window"/>
+
+
+    </data>
+</odoo>

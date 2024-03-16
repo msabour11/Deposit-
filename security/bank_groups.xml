@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="module_bank_category">
+        <field name="name">Bank Deposit System</field>
+    </record>
+
+    <record id="bank_group_manager" model="res.groups">
+        <field name="name">Bank Managers</field>
+        <field name="category_id" ref="deposit_system.module_bank_category"/>
+
+    </record>
+
+      <record id="bank_group_user" model="res.groups">
+        <field name="name">Bank Users</field>
+        <field name="category_id" ref="deposit_system.module_bank_category"/>
+
+    </record>
+    </data>
+
+</odoo>

@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+        <!-- Bank list view definition -->
+
+        <record model="ir.ui.view" id="bank_deposit_list_view">
+            <field name="name">bank deposit list view</field>
+            <field name="model">deposit.bank</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="balance"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Bank form view definition -->
+
+        <record id="bank_deposit_form_view" model="ir.ui.view">
+            <field name="name">bank deposit form view</field>
+            <field name="model">deposit.bank</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="balance"/>
+                            <field name="address"/>
+                        </group>
+                        <notebook>
+                            <page string="Transactions">
+
+
+                                <field name="transaction_ids">
+                                    <tree>
+                                        <field name="ref" readonly="1"/>
+                                        <field name="customer"/>
+                                        <field name="amount"/>
+                                        <field name="state"/>
+                                        <field name="transaction_type"/>
+                                        <field name="transaction_dates"/>
+                                    </tree>
+
+                                </field>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- bank action -->
+        <record id="bank_action" model="ir.actions.act_window">
+            <field name="name">bank deposit action</field>
+            <field name="res_model">deposit.bank</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Banks" id="bank_menu" parent="bank_root_menu" action="bank_action"/>
+
+
+    </data>
+</odoo>

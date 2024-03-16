@@ -1,0 +1,16 @@
+<odoo>
+    <data noupdate="1">
+        <record id="seq_deposit_bank" model="ir.sequence">
+            <field name="name">Bank sequence</field>
+            <field name="code">bank_code</field>
+            <field name="prefix">BCode</field>
+            <field name="padding">5</field>
+        </record>
+        <record id="seq_bank_transaction" model="ir.sequence">
+            <field name="name">Transaction sequence</field>
+            <field name="code">transaction_code</field>
+            <field name="prefix">BOE</field>
+            <field name="padding">5</field>
+        </record>
+    </data>
+</odoo>

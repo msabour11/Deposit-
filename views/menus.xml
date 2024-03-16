@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--   menus-->
+    <menuitem name="Deposit Management System" id="deposit_system_menu"/>
+    <menuitem name="Bank" id="bank_root_menu" parent="deposit_system_menu"/>
+    <menuitem name="Transaction" id="transaction_root_menu" parent="deposit_system_menu"/>
+
+
+</odoo>

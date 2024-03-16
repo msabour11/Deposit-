@@ -1,0 +1,12 @@
+<odoo>
+    <data noupdate="1">
+        <record model="ir.rule" id="transactions_users_record_rule">
+        <!--        record rule for user group that show to each user only created transactions-->
+        <field name="name">Show only transactions  Belonged to user</field>
+        <field name="model_id" ref="model_deposit_transaction"/>
+        <field name="groups" eval="[(4, ref('bank_group_user'))]"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">[('user_id', '=',user.id)]</field>
+    </record>
+    </data>
+</odoo>
